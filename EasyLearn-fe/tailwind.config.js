@@ -4,11 +4,15 @@ module.exports = {
       "./src/**/*.{html,ts}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: true,
+    themes:["night","acid"],
     styled: true,
     base: true,
     utils: true,

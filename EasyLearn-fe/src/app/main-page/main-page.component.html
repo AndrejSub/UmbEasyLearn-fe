@@ -1,6 +1,6 @@
 
 
-<section class=" flex justify-center bg-base-200" id="">
+<section class=" flex justify-center" id="">
     <div class="hero min-h-screen mb-8" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
@@ -17,59 +17,74 @@
 <section class="" id="onas">
 
     <div class=" ">
-        <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+
     </div>
 
 </section>
 
-<section class="flex justify-center bg-base-200 " id="predmety">
+<section  class=" container mx-auto" id="predmety">
+    <h1 class="mb-10 text-4xl font-bold text-center leading-none tracking-tight md:text-3xl lg:text-4xl "> Predmety</h1>
+        <div class=" flex flex-row justify-center gap-5 flex-wrap">
+            <div *ngFor="let subject of subjects" class=" min-h-[192px] gap-0.5 card w-96 glass transition duration-300 ease-in-out hover:opacity-70 rounded-md">
+                <a href="#"><span class="divLink"></span>
 
-    <div class="grid grid-cols-3 grid-rows-2 gap-6 content">
+                    <div class="card-body items-center text-center ">
+                        <h2 class="card-title">{{subject.subjectName}}</h2>
+                        <p>{{this.subject.description}}</p>
+                </div>
+                </a>
+            </div>
+        </div>
 
 
-        <div class="" >
-            <div>
-                <a href="" >
-                    <img src="assets/images/tzi.png" alt="image"
-                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                </a>
-            </div>
-        </div>
-        <div class="" >
-            <div>
-                <a href="" >
-                    <img src="assets/images/mat.png" alt="image"
-                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                </a>
-            </div>
-        </div>
-        <div class="" >
-            <div>
-                <a href="" >
-                    <img src="assets/images/db1.png" alt="image"
-                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                </a>
-            </div>
-        </div>
-        <div class="" >
-            <div>
-                <a href="" >
-                    <img src="assets/images/algo1.png" alt="image"
-                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                </a>
-            </div>
-        </div>
-        <div class="" >
-            <div>
-                <a href="" >
-                    <img src="assets/images/algo2.png" alt="image"
-                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                </a>
-            </div>
-        </div>
-    </div>
+<!--    <div class="grid grid-cols-3 grid-rows-2 gap-6 content">-->
 
+
+<!--        <div class="" >-->
+<!--            <div>-->
+<!--                <a href="" >-->
+<!--                    <img src="assets/images/tzi.png" alt="image"-->
+<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="" >-->
+<!--            <div>-->
+<!--                <a href="" >-->
+<!--                    <img src="assets/images/mat.png" alt="image"-->
+<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="" >-->
+<!--            <div>-->
+<!--                <a href="" >-->
+<!--                    <img src="assets/images/db1.png" alt="image"-->
+<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="" >-->
+<!--            <div>-->
+<!--                <a href="" >-->
+<!--                    <img src="assets/images/algo1.png" alt="image"-->
+<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="" >-->
+<!--            <div>-->
+<!--                <a href="" >-->
+<!--                    <img src="assets/images/algo2.png" alt="image"-->
+<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<br>
 </section>
+
+
 
 
 

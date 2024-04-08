@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { themeChange } from 'theme-change'
 
 @Component({
   selector: 'app-theme-switch',

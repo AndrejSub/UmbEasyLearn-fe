@@ -1,39 +1,40 @@
 <div class="pe-1 bg-base-100 text-base-content sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)]
   shadow-sm">
-<nav class="navbar w-full">
-    <div class="navbar-start">
-        <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
-            </div>
-            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2  shadow bg-base-100 rounded-box w-52">
-                <li><a title="EasyLearn | O nas" href="#onas">O nás</a></li>
-                <li><a title="EasyLearn | Predmety" href="#predmety">Predmety</a></li>
-                <li><a title="EasyLearn | Kontakt" href="#kontakt">Kontakt</a></li>
-            </ul>
-        </div>
-    </div>
-        <a class="btn btn-ghost text-xl">UMB-EasyLearn</a>
-    <div class="navbar-end">
-        <app-theme-switch class="pe-5"></app-theme-switch>
-
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+    <nav class="navbar w-full">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                 </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2  shadow bg-base-100 rounded-box w-52">
+                    <li><a title="EasyLearn | O nas" href="#onas">O nás</a></li>
+                    <li><a title="EasyLearn | Predmety" href="#predmety">Predmety</a></li>
+                    <li><a title="EasyLearn | Kontakt" href="#kontakt">Kontakt</a></li>
+                </ul>
             </div>
-            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                    <a class="justify-between">
-                        Profile
-                        <span class="badge">New</span>
-                    </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
-            </ul>
         </div>
-    </div>
-</nav>
+        <a href="#" class="btn btn-ghost text-xl">UMB-EasyLearn</a>
+        <div class="navbar-end">
+            <app-theme-switch class="pe-5"></app-theme-switch>
+
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                        <a routerLink="register" class="justify-between">
+                            <p>Register</p>
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a routerLink="login">
+                        <p>Login</p>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>

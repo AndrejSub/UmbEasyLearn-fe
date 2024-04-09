@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {SubjectsService} from "../services/subjects.service"
 import {SubjectsDto} from "../dtos/subjectsDto";
 import {NgForOf} from "@angular/common";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    RouterLink
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'

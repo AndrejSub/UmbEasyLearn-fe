@@ -12,6 +12,9 @@ export class ApiService {
   ) { }
 
   get<T>(url: string): Observable<T>{
-    return this.httpClient.get<T>(url) ;
+    return this.httpClient.get<T>("http://localhost:8222/api/"+url) ;
+  }
+  getById<T>(url:string,id:string|null): Observable<T>{
+    return this.httpClient.get<T>(`http://localhost:8222/api/${url}/ID=${id}`);
   }
 }

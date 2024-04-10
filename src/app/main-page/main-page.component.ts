@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit{
   subjects: SubjectsDto[] = []
 
   ngOnInit():void{
-    this.subjectsService.getSubjects("http://localhost:8222/api/subjects")
+    this.subjectsService.getSubjects("subjects")
         .subscribe(
             (subjects : SubjectsDto[] ) =>{this.subjects = subjects})
   }

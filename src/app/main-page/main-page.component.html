@@ -1,87 +1,35 @@
-
-
 <section class=" flex justify-center" id="">
-    <div class="hero min-h-screen mb-8" style="background-image: url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg);">
+    <div class="hero min-h-screen mb-8" style="background-image: url(assets/images/bc.jpg);">
         <div class="hero-overlay bg-opacity-60"></div>
         <div class="hero-content text-center text-neutral-content">
             <div class="max-w-md">
-                <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-                <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                <button class="btn btn-primary">Get Started</button>
+                <h1 class="mb-5 text-5xl font-bold">Welcome to the "UMB easy pass"</h1>
+                <p class="mb-5"> Access study materials, practice tests, and quizzes designed to boost your confidence
+                    and performance. Benefit from personalized learning tools and expert insights to excel in your
+                    assessments. Join us and embark on a path towards academic success today.</p>
+                <a class="btn btn-primary" href="/register">Get Started</a>
             </div>
         </div>
     </div>
-
 </section>
 
 <section class="" id="onas">
-
-    <div class=" ">
-
-    </div>
-
+    <div class=""></div>
 </section>
 
 <section  class=" container mx-auto" id="predmety">
     <h1 class="mb-10 text-4xl font-bold text-center leading-none tracking-tight md:text-3xl lg:text-4xl "> Predmety</h1>
-        <div class=" flex flex-row justify-center gap-5 flex-wrap">
-            <div *ngFor="let subject of subjects" class=" min-h-[192px] gap-0.5 card w-96 glass transition duration-300 ease-in-out hover:opacity-70 rounded-md">
-                <a routerLink="/predmety/{{subject.subjectID}}"><span class="divLink"></span>
-
-                    <div class="card-body items-center text-center ">
-                        <h2 class="card-title">{{subject.subjectName}}</h2>
-                        <p>{{this.subject.description}}</p>
+    <div class=" flex flex-row justify-center gap-5 flex-wrap">
+        <div *ngFor="let subject of subjects" class=" min-h-[192px] gap-0.5 card w-96 glass transition duration-300 ease-in-out hover:opacity-70 rounded-md">
+            <a routerLink="/predmety/{{subject.subjectID}}"><span class="divLink"></span>
+                <div class="card-body items-center text-center ">
+                    <h2 class="card-title">{{subject.subjectName}}</h2>
+                    <p>{{this.subject.description}}</p>
                 </div>
-                </a>
-            </div>
+            </a>
         </div>
-
-
-<!--    <div class="grid grid-cols-3 grid-rows-2 gap-6 content">-->
-
-
-<!--        <div class="" >-->
-<!--            <div>-->
-<!--                <a href="" >-->
-<!--                    <img src="assets/images/tzi.png" alt="image"-->
-<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="" >-->
-<!--            <div>-->
-<!--                <a href="" >-->
-<!--                    <img src="assets/images/mat.png" alt="image"-->
-<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="" >-->
-<!--            <div>-->
-<!--                <a href="" >-->
-<!--                    <img src="assets/images/db1.png" alt="image"-->
-<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="" >-->
-<!--            <div>-->
-<!--                <a href="" >-->
-<!--                    <img src="assets/images/algo1.png" alt="image"-->
-<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="" >-->
-<!--            <div>-->
-<!--                <a href="" >-->
-<!--                    <img src="assets/images/algo2.png" alt="image"-->
-<!--                         class="transition duration-300 ease-in-out hover:opacity-70 rounded-md">-->
-<!--                </a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<br>
+    </div>
+    <br>
 </section>
 
 

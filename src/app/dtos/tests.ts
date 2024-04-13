@@ -42,6 +42,4 @@ export interface testsDto {
     textQuestions: TextQuestions[];
     practicalQuestions: PracticalQuestions[];
     abcQuestions: AbcQuestions[]
-
-
 }

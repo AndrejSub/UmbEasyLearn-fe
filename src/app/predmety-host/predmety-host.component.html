@@ -1,1 +1,7 @@
-<p>predmety-host works!</p>
+<div *ngFor="let test of tests" class="collapse-arrow bg-base-200 mx-5 my-2.5 rounded-3xl">
+    <div class="collapse-title text-xl font-medium">
+        <a routerLink="/test/{{test.testID}}">
+            <p>Test {{ tests.indexOf(test) + 1 }}: {{ test.testName }}</p>
+        </a>
+    </div>
+</div>

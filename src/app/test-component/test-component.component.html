@@ -1,0 +1,86 @@
+<div *ngFor="let test of tests">
+
+    <div class="diff h-24">
+        <div class="diff-item-1">
+            <div class="bg-primary text-primary-content text-8xl font-black grid place-content-center">{{test.testName}}</div>
+        </div>
+        <div class="diff-item-2">
+            <div class="bg-base-200 text-8xl font-black grid place-content-center">{{test.testName}}</div>
+        </div>
+        <div class="diff-resizer"></div>
+    </div>
+    <p class="uppercase underline justify-center flex">Flash cards</p>
+    <div *ngIf="test.flashCards && test.flashCards.length > 0" class="flash-cards">
+        <ul class="flex flex-row space-x-4 justify-center">
+            <li *ngFor="let flashCard of test.flashCards" class="inline-block">
+                <div class="card w-96 bg-primary text-primary-content">
+                    <div class="card-body">
+                        <h2 class="card-title">Card title!</h2>
+                        Question: {{ flashCard.question }}, <br> Answer: {{ flashCard.answer }}
+                        <div class="card-actions justify-end">
+                            <button class="btn">Show answer</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!test.flashCards || test.flashCards.length === 0" class="no-flash-cards">
+        <p>No flash cards available for this test.</p>
+    </div>
+    <p class="uppercase underline justify-center flex">ABC questions</p>
+    <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions">
+        <ul>
+            <li *ngFor="let abcQuestion of test.abcQuestions">
+                Question: {{ abcQuestion.question }}
+                <br>
+                Answer A: {{ abcQuestion.a }}
+                <br>
+                Answer B: {{ abcQuestion.b }}
+                <br>
+                Answer C: {{ abcQuestion.c }}
+                <br>
+                <label for="A">A</label>
+                <input type="radio" id="A" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" checked />
+                <label for="B">B</label>
+                <input type="radio" id="B" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" />
+                <label for="C">C</label>
+                <input type="radio" id="C" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" />
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!test.abcQuestions || test.abcQuestions.length === 0" class="no-abc-questions">
+        <p>No abc questions available for this test.</p>
+    </div>
+    <p class="uppercase underline justify-center flex">Text questions</p>
+    <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions">
+        <ul>
+            <li *ngFor="let textQuestion of test.textQuestions">
+                Question: {{ textQuestion.question }}
+                <br>
+                Answer: {{textQuestion.answer}}
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">
+        <p>No text questions available for this test.</p>
+    </div>
+    <p class="uppercase underline justify-center flex">Practical questions</p>
+    <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
+        <ul>
+            <li *ngFor="let practicalQuestions of test.practicalQuestions">
+                Question: {{ practicalQuestions.zadanie }}
+                <div class="mockup-code">
+                    <pre data-prefix="$"><input class="xl:bg-transparent"></pre>
+                </div>
+                <br>
+                Answer: {{practicalQuestions.riesenie}}
+                <br>
+                Zdroje: {{practicalQuestions.zdroje}}
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!test.practicalQuestions || test.practicalQuestions.length === 0" class="no-practical-questions">
+        <p>No text questions available for this test.</p>
+    </div>
+</div>

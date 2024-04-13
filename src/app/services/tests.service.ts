@@ -20,4 +20,7 @@ export class TestsService {
   getTestsById = (url:string, id: string|null): Observable<testsDto[]> => {
     return this.apiSerivce.getById(url,id);
   }
+  getTestByTestId = (url: string, id: string|null): Observable<testsDto[]> => {
+    return this.apiSerivce.getByTestId(url, id);
+  }
 }

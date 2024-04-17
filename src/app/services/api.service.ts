@@ -12,12 +12,12 @@ export class ApiService {
   ) { }
 
   get<T>(url: string): Observable<T>{
-    return this.httpClient.get<T>("http://localhost:8090/api/"+url) ;
+    return this.httpClient.get<T>("http://localhost:8222/api/"+url) ;
   }
   getById<T>(url:string,id:string|null): Observable<T>{
-    return this.httpClient.get<T>(`http://localhost:8090/api/${url}/ID=${id}`);
+    return this.httpClient.get<T>(`http://localhost:8222/api/${url}/ID=${id}`);
   }
   getByTestId<T>(url:string, id:string|null): Observable<T>{
-    return this.httpClient.get<T>(`http://localhost:8090/api/${url}/TID=${id}`)
+    return this.httpClient.get<T>(`http://localhost:8222/api/${url}/TID=${id}`)
   }
 }

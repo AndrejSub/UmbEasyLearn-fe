@@ -13,6 +13,6 @@ export class AuthService {
   ) { }
 
   getToken = (userDto: loginDto): any =>{
-    return this.httpClient.post("http://localhost:8889/auth/token", userDto);
+    return this.httpClient.post("http://localhost:8222/auth/token", userDto);
   }
 }

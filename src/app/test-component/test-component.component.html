@@ -8,7 +8,7 @@
         </div>
         <div class="diff-resizer"></div>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Flash cards</h1>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Flash cards</h1>
     <div class="flesh-cards-wrapper" *ngIf="test.flashCards && test.flashCards.length > 0">
         <div class="container" *ngFor="let flashCard of test.flashCards">
             <div class="one-flesh-card">
@@ -24,31 +24,26 @@
             <br>
         </div>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">ABC Questions</h1>
-    <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions">
-        <ul>
-            <li *ngFor="let abcQuestion of test.abcQuestions">
-                Question: {{ abcQuestion.question }}
-                <br>
-                Answer A: {{ abcQuestion.a }}
-                <br>
-                Answer B: {{ abcQuestion.b }}
-                <br>
-                Answer C: {{ abcQuestion.c }}
-                <br>
-                <label for="A">A</label>
-                <input type="radio" id="A" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" checked />
-                <label for="B">B</label>
-                <input type="radio" id="B" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" />
-                <label for="C">C</label>
-                <input type="radio" id="C" name="radio-{{abcQuestion.questionID}}" class="radio radio-error" />
-            </li>
-        </ul>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">ABC Questions</h1>
+    <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions-wrapper flex justify-around flex-wrap">
+        <div class="abc-question-container w-80 rounded-lg card-bordered " *ngFor="let abcQuestion of test.abcQuestions">
+            <div class="one-abc-question">
+                <p class="text-2xl font-bold">{{ abcQuestion.question }}</p>
+                <p>A) {{ abcQuestion.a }}</p>
+                <p>B) {{ abcQuestion.b }}</p>
+                <p>C) {{ abcQuestion.c }}</p>
+                <div class="join">
+                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="A" />
+                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="B" />
+                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="C" />
+                </div>
+            </div>
+        </div>
     </div>
     <div *ngIf="!test.abcQuestions || test.abcQuestions.length === 0" class="no-abc-questions">
         <p>No abc questions available for this test.</p>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Text questions</h1>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Text questions</h1>
 
     <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions">
         <ul>
@@ -62,7 +57,7 @@
     <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">
         <p>No text questions available for this test.</p>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Practical questions</h1>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white flex-auto">Practical questions</h1>
     <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
         <ul>
             <li *ngFor="let practicalQuestions of test.practicalQuestions">

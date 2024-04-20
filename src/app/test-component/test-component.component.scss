@@ -1,0 +1,57 @@
+h1{
+  text-align: center;
+}
+.flesh-cards-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+.container{
+  width: 350px;
+  height: 350px;
+  transition: transform 1500ms;
+  perspective: 800px;
+}
+
+.one-flesh-card{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+.container:hover > .one-flesh-card{
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+}
+
+.front{
+  color: black;
+  background: linear-gradient(45deg, #38bcf6, #65ca89);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px;
+}
+
+.back{
+  color: black;
+  background: linear-gradient(45deg, #38bcf6, #65ca89);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px;
+}

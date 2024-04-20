@@ -1,6 +1,5 @@
 <div *ngFor="let test of tests">
-
-    <div class="diff h-24">
+    <div class="diff h-screen">
         <div class="diff-item-1">
             <div class="bg-primary text-primary-content text-8xl font-black grid place-content-center">{{test.testName}}</div>
         </div>
@@ -9,26 +8,23 @@
         </div>
         <div class="diff-resizer"></div>
     </div>
-    <p class="uppercase underline justify-center flex">Flash cards</p>
-    <div *ngIf="test.flashCards && test.flashCards.length > 0" class="flash-cards">
-        <ul class="flex flex-row space-x-4 justify-center">
-            <li *ngFor="let flashCard of test.flashCards" class="inline-block">
-                <div class="card w-96 bg-primary text-primary-content">
-                    <div class="card-body">
-                        <h2 class="card-title">Card title!</h2>
-                        Question: {{ flashCard.question }}, <br> Answer: {{ flashCard.answer }}
-                        <div class="card-actions justify-end">
-                            <button class="btn">Show answer</button>
-                        </div>
-                    </div>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Flash cards</h1>
+    <div class="flesh-cards-wrapper" *ngIf="test.flashCards && test.flashCards.length > 0">
+        <div class="container" *ngFor="let flashCard of test.flashCards">
+            <div class="one-flesh-card">
+                <div class="front">
+                    <h2>Question:</h2>
+                    <p>{{ flashCard.question }}</p>
                 </div>
-            </li>
-        </ul>
+                <div class="back">
+                    <h2>Answer:</h2>
+                    <p>{{ flashCard.answer }}</p>
+                </div>
+            </div>
+            <br>
+        </div>
     </div>
-    <div *ngIf="!test.flashCards || test.flashCards.length === 0" class="no-flash-cards">
-        <p>No flash cards available for this test.</p>
-    </div>
-    <p class="uppercase underline justify-center flex">ABC questions</p>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">ABC Questions</h1>
     <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions">
         <ul>
             <li *ngFor="let abcQuestion of test.abcQuestions">
@@ -52,7 +48,8 @@
     <div *ngIf="!test.abcQuestions || test.abcQuestions.length === 0" class="no-abc-questions">
         <p>No abc questions available for this test.</p>
     </div>
-    <p class="uppercase underline justify-center flex">Text questions</p>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Text questions</h1>
+
     <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions">
         <ul>
             <li *ngFor="let textQuestion of test.textQuestions">
@@ -65,7 +62,7 @@
     <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">
         <p>No text questions available for this test.</p>
     </div>
-    <p class="uppercase underline justify-center flex">Practical questions</p>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white flex-auto">Practical questions</h1>
     <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
         <ul>
             <li *ngFor="let practicalQuestions of test.practicalQuestions">

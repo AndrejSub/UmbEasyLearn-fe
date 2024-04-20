@@ -55,3 +55,10 @@ h1{
   gap: 2rem;
   padding: 10px;
 }
+
+.abc-question-container{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

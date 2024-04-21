@@ -26,7 +26,7 @@
     </div>
     <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">ABC Questions</h1>
     <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions-wrapper flex justify-around flex-wrap">
-        <div class="abc-question-container w-80 rounded-lg card-bordered " *ngFor="let abcQuestion of test.abcQuestions">
+        <div class="abc-question-container w-80 rounded-lg card-bordered mr-5" *ngFor="let abcQuestion of test.abcQuestions">
             <div class="one-abc-question">
                 <p class="text-2xl font-bold">{{ abcQuestion.question }}</p>
                 <p>A) {{ abcQuestion.a }}</p>
@@ -45,32 +45,31 @@
     </div>
     <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Text questions</h1>
 
-    <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions">
-        <ul>
-            <li *ngFor="let textQuestion of test.textQuestions">
-                Question: {{ textQuestion.question }}
-                <br>
-                Answer: {{textQuestion.answer}}
-            </li>
-        </ul>
+    <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions-wrapper">
+        <div class="text-question-container md:w-1/2">
+            <div *ngFor="let textQuestion of test.textQuestions">
+                <p class="text-2xl font-bold">{{textQuestion.question}}</p>
+                <textarea class="textarea textarea-primary" placeholder="Write your answer here"></textarea><br>
+                <div class="showDIV btn btn-outline">Check if you were right</div>
+                <div class="hide">{{textQuestion.answer}}</div>
+            </div>
+        </div>
     </div>
     <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">
         <p>No text questions available for this test.</p>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-white flex-auto">Practical questions</h1>
+    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Practical questions</h1>
     <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
-        <ul>
-            <li *ngFor="let practicalQuestions of test.practicalQuestions">
-                Question: {{ practicalQuestions.zadanie }}
+        <div>
+            <div *ngFor="let practicalQuestions of test.practicalQuestions">
+                <p class="text-2xl font-bold">{{practicalQuestions.zadanie}}</p>
                 <div class="mockup-code">
-                    <pre data-prefix="$"><input class="xl:bg-transparent"></pre>
+                    <pre data-prefix="$"><input class="bg-transparent w-screen h-auto overflow-hidden rounded-lg"></pre>
+                    <div class="showDIV btn btn-outline btn-primary">Check if you were right</div>
+                    <div class="hide">{{practicalQuestions.riesenie}}</div>
                 </div>
-                <br>
-                Answer: {{practicalQuestions.riesenie}}
-                <br>
-                Zdroje: {{practicalQuestions.zdroje}}
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
     <div *ngIf="!test.practicalQuestions || test.practicalQuestions.length === 0" class="no-practical-questions">
         <p>No text questions available for this test.</p>

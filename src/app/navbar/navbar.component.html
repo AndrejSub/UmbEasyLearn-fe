@@ -17,23 +17,34 @@
         <div class="navbar-end">
             <app-theme-switch class="pe-5"></app-theme-switch>
 
-            <div class="dropdown dropdown-end">
+            <div class="dropdown dropdown-end" (click)="checkLogin()">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
                         <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                 </div>
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li>
-                        <a routerLink="register" class="justify-between">
-                            <p>Register</p>
-                            <span class="badge">New</span>
-                        </a>
-                    </li>
-                    <li><a routerLink="login">
-                        <p>Login</p>
-                    </a></li>
-                </ul>
+                <div *ngIf="!logedIn; else elseBlock">
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a routerLink="register" class="justify-between">
+                                <p>Register</p>
+                                <span class="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a routerLink="login">
+                            <p>Login</p>
+                        </a></li>
+                    </ul>
+                </div>
+                <ng-template #elseBlock>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a (click)="logout()">
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                        </ul>
+                </ng-template>
             </div>
         </div>
     </nav>

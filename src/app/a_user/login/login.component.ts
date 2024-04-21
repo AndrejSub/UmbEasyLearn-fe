@@ -40,8 +40,9 @@ token:any =null
     this.authService.getToken(this.loginDto).subscribe((res:any) =>{
       if(res.result){
         alert("success")
-        this.router.navigateByUrl("")
         localStorage.setItem("loginToken",res.token)
+        this.router.navigateByUrl("")
+        // this.loginService.logIn()
       }else{
         alert("bad login")
 

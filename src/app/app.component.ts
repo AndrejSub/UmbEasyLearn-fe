@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {FooterComponent} from "./footer/footer.component";
 import {MainPageComponent} from "./main-page/main-page.component";
+
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,7 @@ import {MainPageComponent} from "./main-page/main-page.component";
 })
 export class AppComponent {
   title = 'EasyLearn-fe';
+
+  constructor() {}
+
 }

@@ -14,11 +14,45 @@
 </section>
 
 <section class="" id="onas">
-    <div class=""></div>
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Spoznaj náš tím</h2>
+        </div>
+
+
+        <div class="grid gap-12 lg:grid-cols-3 lg:gap-18 ">
+
+
+            <div class="text-center ">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="https://media.licdn.com/dms/image/D4E03AQEgoKhQh89nfQ/profile-displayphoto-shrink_400_400/0/1691065327474?e=1719446400&v=beta&t=u9wdRswc7XQn9E0gEaAhTzb7A-WSpzscc7XLjqUPeQM" alt="">
+                <h3 class="mb-1 text-2xl font-bold tracking-tight ">
+                    <a href="https://www.linkedin.com/in/andrej-%C5%A1uba-15734a284/" target="_blank">Andrej Šuba</a>
+                </h3>
+                <p class="text-gray-500">CEO/Programátor</p>
+            </div>
+
+            <div class="text-center">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="https://media.licdn.com/dms/image/D4D03AQGSGF5FQvgi4A/profile-displayphoto-shrink_400_400/0/1710861462946?e=1719446400&v=beta&t=l5OnJRWPbHxf5Ldix5FRyV30NTzzK34ixK8_hHbtXpQ" alt="">
+                <h3 class="mb-1 text-2xl font-bold tracking-tight ">
+                    <a href="https://www.linkedin.com/in/adrian-vlcko-2b672b2bb/" target="_blank">Adrian Vlčko</a>
+                </h3>
+                <p class="text-gray-500">CEO/Programátor</p>
+            </div>
+
+            <div class="text-center">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="https://media.licdn.com/dms/image/D4E03AQEXoWkDHz6DZA/profile-displayphoto-shrink_400_400/0/1713258163351?e=1719446400&v=beta&t=T4ILCQD0vPG18I-yJdCprKHblkz9j8CRfeSJrvvcK2k" alt="">
+                <h3 class="mb-1 text-2xl font-bold tracking-tight ">
+                    <a href="https://www.linkedin.com/in/nodempr/" target="_blank">Mykyta Pryhodko</a>
+                </h3>
+                <p class="text-gray-500">CEO/Programátor</p>
+            </div>
+
+        </div>
+    </div>
 </section>
 
-<section  class=" container mx-auto" id="predmety">
-    <h1 class="mb-10 text-4xl font-bold text-center leading-none tracking-tight md:text-3xl lg:text-4xl "> Predmety</h1>
+<section  class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6" id="predmety">
+    <h1 class="mb-4 text-4xl tracking-tight font-extrabold"> Predmety</h1>
     <div class=" flex flex-row justify-center gap-5 flex-wrap">
         <div *ngFor="let subject of subjects" class=" min-h-[192px] gap-0.5 card w-96 glass transition duration-300 ease-in-out hover:opacity-70 rounded-md">
             <a routerLink="/predmety/{{subject.subjectID}}"><span class="divLink"></span>

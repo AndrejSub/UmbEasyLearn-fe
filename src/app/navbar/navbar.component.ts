@@ -22,8 +22,7 @@ export class NavbarComponent {
         private router: Router,) {
     }
 
-
-
+    imgurl:string = "null"
     logedIn:boolean = false;
 
     checkLogin():void{
@@ -35,6 +34,19 @@ export class NavbarComponent {
         this.router.navigateByUrl("").then(() => {
             window.location.reload();
         });
+    }
+
+    onFileChange(event: any){
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            const  base64String = reader.result as string;
+            this.imgurl = base64String;
+        }
+        if (file){
+            reader.readAsDataURL(file);
+        }
     }
 
 }

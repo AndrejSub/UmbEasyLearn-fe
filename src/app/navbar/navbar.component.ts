@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ThemeSwitchComponent} from "../theme-switch/theme-switch.component";
 import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
@@ -15,7 +15,7 @@ import {LoginService} from "../services/login.service";
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
     constructor(
         private loginService: LoginService,
@@ -23,12 +23,12 @@ export class NavbarComponent implements OnInit {
     }
 
 
-
+    imgurl:string = "null"
     logedIn:boolean = this.loginService.logedIn;
+
 
     checkLogin():void{
         this.logedIn = this.loginService.logedIn
-        
     }
 
     logout():void{
@@ -37,8 +37,18 @@ export class NavbarComponent implements OnInit {
             window.location.reload();
         });
     }
-    ngOnInit() {
-        this.logedIn = this.loginService.logedIn;
+
+    onFileChange(event: any){
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            const  base64String = reader.result as string;
+            this.imgurl = base64String;
+        }
+        if (file){
+            reader.readAsDataURL(file);
+        }
     }
 
 }

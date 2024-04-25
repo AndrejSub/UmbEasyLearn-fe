@@ -22,8 +22,10 @@ export class NavbarComponent {
         private router: Router,) {
     }
 
+
     imgurl:string = "null"
-    logedIn:boolean = false;
+    logedIn:boolean = this.loginService.logedIn;
+
 
     checkLogin():void{
         this.logedIn = this.loginService.logedIn

@@ -39,12 +39,10 @@ token:any =null
     console.log(this.loginDto)
     this.authService.getToken(this.loginDto).subscribe((res:any) =>{
       if(res.result){
-        alert("success")
         localStorage.setItem("loginToken",res.token)
         this.router.navigateByUrl("")
         // this.loginService.logIn()
       }else{
-        alert("bad login")
 
       }
     })

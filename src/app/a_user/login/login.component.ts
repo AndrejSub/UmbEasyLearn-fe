@@ -4,6 +4,7 @@ import {NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {loginDto} from "../../dtos/UserDto";
 import {AuthService} from "../../services/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,10 @@ import {AuthService} from "../../services/auth.service";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-constructor(private authService: AuthService, private router: Router) {
+constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService) {
 }
 loginDto:loginDto ={
   email:"",
@@ -36,15 +40,8 @@ token:any =null
     this.loginDto.email = this.loginForm.get("email")?.value
     this.loginDto.password = this.loginForm.get("pwd")?.value
 
-    console.log(this.loginDto)
-    this.authService.getToken(this.loginDto).subscribe((res:any) =>{
-      if(res.result){
-        localStorage.setItem("loginToken",res.token)
-        this.router.navigateByUrl("")
-        // this.loginService.logIn()
-      }else{
+    this.authService.logIn(this.loginDto)
+    this.toastr.success("Login Successfully")
 
-      }
-    })
   }
 }

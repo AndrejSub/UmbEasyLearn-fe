@@ -3,6 +3,7 @@ import {ThemeSwitchComponent} from "../theme-switch/theme-switch.component";
 import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {LoginService} from "../services/login.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,8 @@ export class NavbarComponent {
 
     constructor(
         private loginService: LoginService,
-        private router: Router,) {
+        private router: Router,
+        private toastr: ToastrService,) {
     }
 
 
@@ -28,6 +30,7 @@ export class NavbarComponent {
 
 
     checkLogin():void{
+
         this.logedIn = this.loginService.logedIn
     }
 
@@ -36,6 +39,7 @@ export class NavbarComponent {
         this.router.navigateByUrl("").then(() => {
             window.location.reload();
         });
+
     }
 
     onFileChange(event: any){

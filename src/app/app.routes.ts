@@ -10,6 +10,7 @@ import {PredmetAlgo2Component} from "./a_predmety/predmet-algo2/predmet-algo2.co
 import {ResethesloComponent} from "./a_user/resetheslo/resetheslo.component";
 import {PredmetyHostComponent} from "./predmety-host/predmety-host.component";
 import {TestComponentComponent} from "./test-component/test-component.component";
+import {ProfileComponent}  from "./profile/profile.component";
 
 export const routes: Routes = [
     {
@@ -55,5 +56,9 @@ export const routes: Routes = [
     {
         path: 'test/:idTestu',
         component: TestComponentComponent
+    },
+    {
+        path:"profile",
+        component: ProfileComponent
     }
 ];

@@ -62,7 +62,7 @@
     <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
         <div>
             <div *ngFor="let practicalQuestions of test.practicalQuestions">
-                <p class="text-2xl font-bold">{{practicalQuestions.zadanie}}</p>
+                <p class="text-2xl font-bold mx-5">{{practicalQuestions.zadanie}}</p>
                 <div class="mockup-code">
                     <pre data-prefix="$"><input class="bg-transparent w-screen h-auto overflow-hidden rounded-lg"></pre>
                     <div class="showDIV btn btn-outline btn-primary">Check if you were right</div>

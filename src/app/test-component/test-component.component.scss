@@ -57,7 +57,7 @@ h1{
   padding: 10px;
 }
 
-.abc-question-container{
+.abc-question-container, .text-questions-wrapper, .pra{
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -76,4 +76,5 @@ textarea{
 }
 .mockup-code{
   overflow: hidden;
+  margin: 25px;
 }

@@ -11,5 +11,6 @@ import {DeleteUserComponent} from "../delete-user/delete-user.component";
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-  img2:string = "data:image/png;base64," + localStorage.getItem("avatarImg")
+    userEmail = localStorage.getItem("userEmail");
+    img2:string = "data:image/png;base64," + localStorage.getItem("avatarImg")
 }

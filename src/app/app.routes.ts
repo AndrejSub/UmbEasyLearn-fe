@@ -11,6 +11,7 @@ import {ResethesloComponent} from "./a_user/resetheslo/resetheslo.component";
 import {PredmetyHostComponent} from "./predmety-host/predmety-host.component";
 import {TestComponentComponent} from "./test-component/test-component.component";
 import {ProfileComponent}  from "./profile/profile.component";
+import {ChangepasswordComponent} from "./changepassword/changepassword.component";
 
 export const routes: Routes = [
     {
@@ -44,6 +45,10 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'changepassword',
+        component:ChangepasswordComponent
     },
     {
         path: 'register',

@@ -30,6 +30,10 @@ export class AuthService {
     return this.httpClient.get<valid>(`http://localhost:8222/auth/validate?token=${localStorage.getItem("loginToken")}`)
   }
 
+  changePassword(loginDto:loginDto) : Observable<any> {
+    return this.httpClient.post("http://localhost:8222/auth/changepassword",loginDto)
+  }
+
   logout(){
     localStorage.removeItem("loginToken");
     localStorage.removeItem("userEmail");

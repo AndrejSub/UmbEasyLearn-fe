@@ -17,6 +17,10 @@ export class LoginService {
         if (localStorage.getItem("loginToken") != null) {
             const res: any = await this.authService.validateToken().toPromise();
             this.logedIn=true
+            if(!res.valid){
+                this.authService.logout();
+
+            }
             return res.valid;
         } else {
             return false;

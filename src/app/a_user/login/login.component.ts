@@ -19,9 +19,7 @@ import {ToastrService} from "ngx-toastr";
 })
 export class LoginComponent {
 constructor(
-    private authService: AuthService,
-    private router: Router,
-    private toastr: ToastrService) {
+    private authService: AuthService) {
 }
 loginDto:loginDto ={
   email:"",
@@ -41,7 +39,7 @@ token:any =null
     this.loginDto.password = this.loginForm.get("pwd")?.value
 
     this.authService.logIn(this.loginDto)
-    this.toastr.success("Login Successfully")
+
 
   }
 }

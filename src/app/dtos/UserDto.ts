@@ -15,3 +15,8 @@ export interface registerDto {
 export interface valid {
     valid:boolean;
 }
+
+export interface token{
+    token:string;
+    valid:boolean;
+}

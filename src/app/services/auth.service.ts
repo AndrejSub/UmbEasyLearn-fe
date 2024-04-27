@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {loginDto, registerDto, valid} from "../dtos/UserDto";
 import { Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 
 @Injectable({
@@ -12,11 +13,12 @@ export class AuthService {
 
   constructor(
       private httpClient: HttpClient,
-      private router: Router
+      private router: Router,
+      private toastr: ToastrService
   ) {
   }
 
-  getToken = (userDto: loginDto): any => {
+  getToken = (userDto: loginDto):Observable<any> => {
     return this.httpClient.post("http://localhost:8222/auth/token", userDto);
   }
 
@@ -28,18 +30,24 @@ export class AuthService {
     return this.httpClient.get<valid>(`http://localhost:8222/auth/validate?token=${localStorage.getItem("loginToken")}`)
   }
 
+  logout(){
+    localStorage.removeItem("loginToken");
+    localStorage.removeItem("userEmail");
+  }
+
   logIn(loginDto: any) {
     this.getToken(loginDto).subscribe((res:any) =>{
 
       if(res.result){
         //Ak sa podarilo prihlasit
         localStorage.setItem("loginToken",res.token)
+        localStorage.setItem("userEmail",loginDto.email)
+        this.toastr.success("Login Successfully")
         this.router.navigateByUrl("")
         // this.loginService.logIn()
-      }else{
-
       }
-
+    } ,error =>{
+      this.toastr.warning("Wrong email or password")
     })
   }
 }

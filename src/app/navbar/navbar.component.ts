@@ -4,6 +4,7 @@ import {Router, RouterLink} from "@angular/router";
 import {NgIf} from "@angular/common";
 import {LoginService} from "../services/login.service";
 import {ToastrService} from "ngx-toastr";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,8 @@ export class NavbarComponent {
     constructor(
         private loginService: LoginService,
         private router: Router,
-        private toastr: ToastrService,) {
+        private toastr: ToastrService,
+        private authService: AuthService,) {
     }
 
 
@@ -35,7 +37,7 @@ export class NavbarComponent {
     }
 
     logout():void{
-        localStorage.removeItem("loginToken");
+        this.authService.logout();
         this.router.navigateByUrl("").then(() => {
             window.location.reload();
         });

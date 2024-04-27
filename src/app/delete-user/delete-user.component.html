@@ -1,0 +1,16 @@
+<button class="btn btn-primary" onclick="my_modal_1.showModal()">Delete Account</button>
+<dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Hello!</h3>
+        <p class="py-4">Are you sure you want to delete your account ? deletion cannot be undone.</p>
+        <div class="modal-action">
+            <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <div class="flex gap-3">
+                    <button class="btn btn-primary" (click)="delete()">Delete account</button>
+                    <button class="btn btn-accent">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</dialog>

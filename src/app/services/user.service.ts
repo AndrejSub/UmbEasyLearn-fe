@@ -10,8 +10,7 @@ export class UserService {
       private httpClient: HttpClient)
   { }
 
-
   deleteUserByEmail(email: string){
-    this.httpClient.delete(`http://localhost:8222/users/email=${email}`);
+    this.httpClient.delete(`http://localhost:8222/users/email=${email}`).subscribe();
   }
 }

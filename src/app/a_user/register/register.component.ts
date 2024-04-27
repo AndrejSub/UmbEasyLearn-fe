@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {registerDto} from "../../dtos/UserDto";
 import {ToastrService} from "ngx-toastr";
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -26,8 +27,8 @@ export class RegisterComponent {
   registerDto:registerDto ={
     email:"",
     password:"",
-    date_created: new Date(),
-    date_updated: new Date(),
+    created_at: "",
+    updated_at: "",
     role:"user"
   };
 
@@ -39,6 +40,10 @@ export class RegisterComponent {
   register(){
     this.registerDto.email = this.loginForm.get("email")?.value
     this.registerDto.password = this.loginForm.get("pwd")?.value
+    console.log(formatDate(new Date(), 'yyyy/MM/dd', 'en'))
+    this.registerDto.created_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
+    this.registerDto.updated_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
+
     this.authService.createUser(this.registerDto).subscribe((res:any) =>{
       this.authService.logIn(this.registerDto)
       this.toastr.success("Account created successfully")

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {DeleteUserComponent} from "../delete-user/delete-user.component";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,8 @@ import {DeleteUserComponent} from "../delete-user/delete-user.component";
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
+    constructor(private userService: UserService) {
+    }
     imgurl:string = "data:image/png;base64," + localStorage.getItem("avatarImg")
     userEmail = localStorage.getItem("userEmail");
     onFileChange(event: any){
@@ -20,7 +23,8 @@ export class ProfileComponent {
             const  base64String = reader.result as string;
             this.imgurl = base64String;
             // @ts-ignore
-            // this.userService.updateUserPhoto(localStorage.getItem("avatarImg"), localStorage.getItem("userEmail"))
+            this.userService.updateUserPhoto(localStorage.getItem("avatarImg"), localStorage.getItem("userEmail"))
+            console.log("poslal som")
         }
         if (file){
             reader.readAsDataURL(file);

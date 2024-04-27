@@ -20,3 +20,11 @@ export interface token{
     token:string;
     valid:boolean;
 }
+
+export interface userinfo{
+    userId:string
+    email:string
+    avatar:string
+    created_at:string
+    updated_at:string
+}

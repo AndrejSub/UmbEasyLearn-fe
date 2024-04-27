@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {FooterComponent} from "./footer/footer.component";
 import {MainPageComponent} from "./main-page/main-page.component";
+import {UserService} from "./services/user.service";
+import {userinfo} from "./dtos/UserDto";
 
 
 @Component({
@@ -14,7 +16,18 @@ import {MainPageComponent} from "./main-page/main-page.component";
 })
 export class AppComponent {
   title = 'EasyLearn-fe';
-
-  constructor() {}
-
+  // @ts-ignore
+  user: userinfo;
+  constructor(private userService: UserService) {}
+  async ngOnInit(): Promise<any> {
+    if (localStorage.getItem("userEmail") !== null)
+    // @ts-ignore
+    this.userService.getUserByEmail(localStorage.getItem("userEmail")).subscribe(
+        (users: userinfo) => {
+          // @ts-ignore
+          this.user = users
+        console.log(users.avatar)
+        localStorage.setItem("avatarImg", users.avatar)}
+    )
+  }
 }

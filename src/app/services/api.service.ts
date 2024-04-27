@@ -20,4 +20,7 @@ export class ApiService {
   getByTestId<T>(url:string, id:string|null): Observable<T>{
     return this.httpClient.get<T>(`http://localhost:8222/api/${url}/TID=${id}`)
   }
+  getByEmail<T>(email:string):Observable<T>{
+    return this.httpClient.get<T>(`http://localhost:8222/users/${email}`)
+  }
 }

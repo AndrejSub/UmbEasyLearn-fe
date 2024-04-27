@@ -6,8 +6,8 @@ export interface loginDto {
 export interface registerDto {
     email:string | undefined | null,
     password:string | undefined | null,
-    date_created: Date
-    date_updated: Date
+    created_at: any
+    updated_at: any
     role:string
 
 }

@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import {DeleteUserComponent} from "../delete-user/delete-user.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [
+    DeleteUserComponent
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })

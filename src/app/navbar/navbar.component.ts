@@ -20,6 +20,7 @@ import {AuthService} from "../services/auth.service";
 export class NavbarComponent {
 
     constructor(
+
         private loginService: LoginService,
         private router: Router,
         private toastr: ToastrService,
@@ -41,16 +42,5 @@ export class NavbarComponent {
         });
     }
 
-    onFileChange(event: any){
-        const file = event.target.files[0];
-        const reader = new FileReader();
 
-        reader.onloadend = () => {
-            const  base64String = reader.result as string;
-            this.imgurl = base64String;
-        }
-        if (file){
-            reader.readAsDataURL(file);
-        }
-    }
 }

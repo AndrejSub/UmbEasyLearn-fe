@@ -33,6 +33,7 @@ export class AuthService {
   logout(){
     localStorage.removeItem("loginToken");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("avatarImg");
   }
 
   logIn(loginDto: any) {

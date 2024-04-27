@@ -20,8 +20,9 @@
             <div class="dropdown dropdown-end" (mouseenter)="checkLogin()">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="{{imgurl}}" />
+                        <img alt="Tailwind CSS Navbar component" src="{{img2}}" />
                     </div>
+
                 </div>
                 <div *ngIf="!logedIn; else elseBlock">
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -34,9 +35,9 @@
                         <li><a routerLink="login">
                             <p>Login</p>
                         </a></li>
-                        <li>
-                            <input type="file" (change)="onFileChange($event)" accept="image/*" class="file-input w-full max-w-xs" />
-                        </li>
+<!--                        <li>-->
+<!--                            <input type="file" (change)="onFileChange($event)" accept="image/*" class="file-input w-full max-w-xs" />-->
+<!--                        </li>-->
                     </ul>
                 </div>
                 <ng-template #elseBlock>

@@ -37,9 +37,6 @@ token:any =null
   login() {
     this.loginDto.email = this.loginForm.get("email")?.value
     this.loginDto.password = this.loginForm.get("pwd")?.value
-
     this.authService.logIn(this.loginDto)
-
-
   }
 }

@@ -7,7 +7,13 @@
                 <p class="mb-5"> Access study materials, practice tests, and quizzes designed to boost your confidence
                     and performance. Benefit from personalized learning tools and expert insights to excel in your
                     assessments. Join us and embark on a path towards academic success today.</p>
-                <a class="btn btn-primary" href="/register">Get Started</a>
+                <div *ngIf="!logedIn; else elseBlock">
+                    <a class="btn btn-primary" href="/register">Get Started</a>
+                </div>
+                <ng-template #elseBlock>
+                    <a class="btn btn-primary" href="#predmety">Get Started</a>
+                </ng-template>
+
             </div>
         </div>
     </div>
@@ -53,7 +59,7 @@
 
 <section  class=" container mx-auto flex justify-center" style="align-items: center; flex-direction: column"  id="predmety">
     <h1 class="mb-4 text-4xl p-10 font-extrabold text-center leading-none tracking-tight md:text-3xl lg:text-4xl "> Subjects</h1>
-    <div *ngIf="logedIn;else elseBlock" class=" flex flex-row justify-center gap-5 flex-wrap">
+    <div *ngIf="logedIn;else elsePredmetyBlock" class=" flex flex-row justify-center gap-5 flex-wrap">
         <div *ngFor="let subject of subjects" class=" min-h-[192px] gap-0.5 card w-96 glass transition duration-300 ease-in-out hover:opacity-70 rounded-md">
             <a routerLink="/predmety/{{subject.subjectID}}"><span class="divLink"></span>
                 <div class="card-body items-center text-center ">
@@ -63,7 +69,7 @@
             </a>
         </div>
     </div>
-    <ng-template  #elseBlock>
+    <ng-template  #elsePredmetyBlock>
         <div class="card object-center w-96 bg-neutral text-neutral-content">
             <div class="card-body items-center text-center">
                 <h2 class="card-title">You have to be loged in to view this content</h2>

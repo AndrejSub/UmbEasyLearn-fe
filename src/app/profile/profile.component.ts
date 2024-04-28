@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import {DeleteUserComponent} from "../delete-user/delete-user.component";
 import {UserService} from "../services/user.service";
-import {useravatar} from "../dtos/UserDto";
+import {RouterLink} from "@angular/router";
 import {AuthService} from "../services/auth.service";
+import {useravatar} from "../dtos/UserDto";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [
-    DeleteUserComponent
+    DeleteUserComponent,
+      RouterLink
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'

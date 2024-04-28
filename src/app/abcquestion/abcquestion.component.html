@@ -1,0 +1,38 @@
+
+    <div *ngIf="!showAnswer;else endPage">
+
+        <div class="card w-192  text-center text-primary-content">
+            <div class="card-body">
+                <p>{{question}}</p>
+                <div class="flex flex-col  text-start">
+                    <div>
+                        <input type="radio" name="option" class="radio radio-primary" value="a" [(ngModel)]="selectedOption"> {{a}}
+                    </div>
+                    <div>
+                        <input type="radio" class="radio radio-primary" name="option" value="b" [(ngModel)]="selectedOption"> {{b}}
+                    </div>
+                    <div>
+                        <input type="radio" name="option" class="radio radio-primary" value="c" [(ngModel)]="selectedOption"> {{c}}
+                    </div>
+                </div>
+                <div class="card-actions pt-5 justify-center">
+                    <button class="btn" (click)="showBackSide()">Ukáž odpoveď</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<ng-template #endPage>
+    <div class="card h-32 w-192  text-center text-primary-content">
+        <div class="card-body ">
+            <div *ngIf="correct; else elseBlock">
+                Tvoja odpoveď bola správna
+            </div>
+            <ng-template #elseBlock>
+                Tvoja odpoveď je nesprávna
+            </ng-template>
+            <p>Stlač next pre dalšiu otazku</p>
+
+        </div>
+    </div>
+</ng-template>

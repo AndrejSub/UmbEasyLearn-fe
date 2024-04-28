@@ -1,77 +1,165 @@
-<div *ngFor="let test of tests">
-    <div class="diff h-screen">
-        <div class="diff-item-1">
-            <div class="bg-primary text-primary-content text-8xl font-black grid place-content-center">{{test.testName}}</div>
-        </div>
-        <div class="diff-item-2">
-            <div class="bg-base-200 text-8xl font-black grid place-content-center">{{test.testName}}</div>
-        </div>
-        <div class="diff-resizer"></div>
-    </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Flash cards</h1>
-    <div class="flesh-cards-wrapper" *ngIf="test.flashCards && test.flashCards.length > 0">
-        <div class="container" *ngFor="let flashCard of test.flashCards">
-            <div class="one-flesh-card">
-                <div class="front">
-                    <h2>Question:</h2>
-                    <p>{{ flashCard.question }}</p>
-                </div>
-                <div class="back">
-                    <h2>Answer:</h2>
-                    <p>{{ flashCard.answer }}</p>
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">ABC Questions</h1>
-    <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions-wrapper flex justify-around flex-wrap">
-        <div class="abc-question-container w-80 rounded-lg card-bordered mr-5" *ngFor="let abcQuestion of test.abcQuestions">
-            <div class="one-abc-question">
-                <p class="text-2xl font-bold">{{ abcQuestion.question }}</p>
-                <p>A) {{ abcQuestion.a }}</p>
-                <p>B) {{ abcQuestion.b }}</p>
-                <p>C) {{ abcQuestion.c }}</p>
-                <div class="join">
-                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="A" />
-                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="B" />
-                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="C" />
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!test.abcQuestions || test.abcQuestions.length === 0" class="no-abc-questions">
-        <p>No abc questions available for this test.</p>
-    </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Text questions</h1>
-
-    <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions-wrapper">
-        <div class="text-question-container md:w-1/2">
-            <div *ngFor="let textQuestion of test.textQuestions">
-                <p class="text-2xl font-bold">{{textQuestion.question}}</p>
-                <textarea class="textarea textarea-primary" placeholder="Write your answer here"></textarea><br>
-                <div class="showDIV btn btn-outline">Check if you were right</div>
-                <div class="hide">{{textQuestion.answer}}</div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">
-        <p>No text questions available for this test.</p>
-    </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Practical questions</h1>
-    <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">
-        <div>
-            <div *ngFor="let practicalQuestions of test.practicalQuestions">
-                <p class="text-2xl font-bold mx-5">{{practicalQuestions.zadanie}}</p>
-                <div class="mockup-code">
-                    <pre data-prefix="$"><input class="bg-transparent w-screen h-auto overflow-hidden rounded-lg"></pre>
-                    <div class="showDIV btn btn-outline btn-primary">Check if you were right</div>
-                    <div class="hide">{{practicalQuestions.riesenie}}</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="!test.practicalQuestions || test.practicalQuestions.length === 0" class="no-practical-questions">
-        <p>No text questions available for this test.</p>
-    </div>
+<div class="pt-10">
+    <h1 class="font-bold text-2xl ">{{tests[0].testName}}</h1>
 </div>
+<div class="ml-5 mr-5" >
+<p-stepper [linear]="true">
+
+        <ng-container *ngIf="tests[0].flashCards && tests[0].flashCards.length > 0">
+            <ng-container *ngFor="let flashCard of tests[0].flashCards">
+                <p-stepperPanel >
+                    <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                        <div class="flex flex-column h-12rem">
+                            <div class=" border-2 border-dashed surface-border border-round surface-ground    flex-auto flex justify-center align-items-center font-medium">
+                                <app-flashcard [answer]="flashCard.answer" [question]="flashCard.question"></app-flashcard>
+                            </div>
+                        </div>
+                        <div class="flex pt-4 justify-end">
+                            <p-button [disabled]="!testsService.goNext" label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="nextCallback.emit();testsService.setFalse()" /></div>
+                    </ng-template>
+                </p-stepperPanel>
+            </ng-container>
+        </ng-container>
+
+    <ng-container *ngIf="tests[0].textQuestions && tests[0].textQuestions.length > 0">
+        <ng-container *ngFor="let textQuestion of tests[0].textQuestions">
+            <p-stepperPanel  >
+                <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-center align-items-center font-medium">
+                            <app-textquestion [answer]="textQuestion.answer" [question]="textQuestion.question"></app-textquestion>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-end">
+                        <p-button [disabled]="!testsService.goNext" label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="nextCallback.emit();testsService.setFalse()" /></div
+                    ></ng-template>
+            </p-stepperPanel>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="tests[0].practicalQuestions && tests[0].practicalQuestions.length > 0">
+        <ng-container *ngFor="let practicalQuestion of tests[0].practicalQuestions">
+            <p-stepperPanel>
+                <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-center align-items-center font-medium">
+                            <app-textquestion [answer]="practicalQuestion.riesenie" [question]="practicalQuestion.zadanie"></app-textquestion>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-end">
+                        <p-button [disabled]="!testsService.goNext" label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="nextCallback.emit();testsService.setFalse()" /></div
+                    ></ng-template>
+            </p-stepperPanel>
+        </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="tests[0].abcQuestions && tests[0].abcQuestions.length > 0">
+        <ng-container *ngFor="let abcQuestion of tests[0].abcQuestions">
+            <p-stepperPanel>
+                <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                    <div class="flex flex-column h-12rem">
+                        <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-center align-items-center font-medium">
+                            <app-abcquestion
+                                    [answer]="abcQuestion.correctAnswer"
+                                    [question]="abcQuestion.question"
+                                    [a]="abcQuestion.a"
+                                    [b]="abcQuestion.b"
+                                    [c]="abcQuestion.c">
+
+                            </app-abcquestion>
+                        </div>
+                    </div>
+                    <div class="flex pt-4 justify-end">
+                        <p-button [disabled]="!testsService.goNext" label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="nextCallback.emit();testsService.setFalse()" /></div
+                    ></ng-template>
+            </p-stepperPanel>
+        </ng-container>
+    </ng-container>
+    <p-stepperPanel >
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+            <div class="flex flex-column h-12rem">
+                <div class="border-2  surface-ground flex-auto flex justify-content-center align-items-center font-medium">Gratulujem úspešne si zvládol tento test pocet dosiahnutých bodov:{{testsService.points}}</div>
+            </div>
+            <div class="flex pt-4 justify-end">
+                <button routerLink="" class="btn">Go to home page</button>
+            </div>
+        </ng-template>
+    </p-stepperPanel>
+</p-stepper>
+</div>
+<!--<div *ngFor="let test of tests">-->
+<!--    <div class="diff h-screen">-->
+<!--        <div class="diff-item-1">-->
+<!--            <div class="bg-primary text-primary-content text-8xl font-black grid place-content-center">{{test.testName}}</div>-->
+<!--        </div>-->
+<!--        <div class="diff-item-2">-->
+<!--            <div class="bg-base-200 text-8xl font-black grid place-content-center">{{test.testName}}</div>-->
+<!--        </div>-->
+<!--        <div class="diff-resizer"></div>-->
+<!--    </div>-->
+<!--    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Flash cards</h1>-->
+<!--    <div class="flesh-cards-wrapper" *ngIf="test.flashCards && test.flashCards.length > 0">-->
+<!--        <div class="container" *ngFor="let flashCard of test.flashCards">-->
+<!--            <div class="one-flesh-card">-->
+<!--                <div class="front">-->
+<!--                    <h2>Question:</h2>-->
+<!--                    <p>{{ flashCard.question }}</p>-->
+<!--                </div>-->
+<!--                <div class="back">-->
+<!--                    <h2>Answer:</h2>-->
+<!--                    <p>{{ flashCard.answer }}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">ABC Questions</h1>-->
+<!--    <div *ngIf="test.abcQuestions && test.abcQuestions.length > 0" class="abc-questions-wrapper flex justify-around flex-wrap">-->
+<!--        <div class="abc-question-container w-80 rounded-lg card-bordered mr-5" *ngFor="let abcQuestion of test.abcQuestions">-->
+<!--            <div class="one-abc-question">-->
+<!--                <p class="text-2xl font-bold">{{ abcQuestion.question }}</p>-->
+<!--                <p>A) {{ abcQuestion.a }}</p>-->
+<!--                <p>B) {{ abcQuestion.b }}</p>-->
+<!--                <p>C) {{ abcQuestion.c }}</p>-->
+<!--                <div class="join">-->
+<!--                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="A" />-->
+<!--                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="B" />-->
+<!--                    <input class="join-item btn" type="radio" name="options-{{abcQuestion.questionID}}" aria-label="C" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!test.abcQuestions || test.abcQuestions.length === 0" class="no-abc-questions">-->
+<!--        <p>No abc questions available for this test.</p>-->
+<!--    </div>-->
+<!--    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Text questions</h1>-->
+
+<!--    <div *ngIf="test.textQuestions && test.textQuestions.length > 0" class="text-questions-wrapper">-->
+<!--        <div class="text-question-container md:w-1/2">-->
+<!--            <div *ngFor="let textQuestion of test.textQuestions">-->
+<!--                <p class="text-2xl font-bold">{{textQuestion.question}}</p>-->
+<!--                <textarea class="textarea textarea-primary" placeholder="Write your answer here"></textarea><br>-->
+<!--                <div class="showDIV btn btn-outline">Check if you were right</div>-->
+<!--                <div class="hide">{{textQuestion.answer}}</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!test.textQuestions || test.textQuestions.length === 0" class="no-text-questions">-->
+<!--        <p>No text questions available for this test.</p>-->
+<!--    </div>-->
+<!--    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl flex-auto">Practical questions</h1>-->
+<!--    <div *ngIf="test.practicalQuestions && test.practicalQuestions.length > 0" class="practical-questions">-->
+<!--        <div>-->
+<!--            <div *ngFor="let practicalQuestions of test.practicalQuestions">-->
+<!--                <p class="text-2xl font-bold mx-5">{{practicalQuestions.zadanie}}</p>-->
+<!--                <div class="mockup-code">-->
+<!--                    <pre data-prefix="$"><input class="bg-transparent w-screen h-auto overflow-hidden rounded-lg"></pre>-->
+<!--                    <div class="showDIV btn btn-outline btn-primary">Check if you were right</div>-->
+<!--                    <div class="hide">{{practicalQuestions.riesenie}}</div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div *ngIf="!test.practicalQuestions || test.practicalQuestions.length === 0" class="no-practical-questions">-->
+<!--        <p>No text questions available for this test.</p>-->
+<!--    </div>-->
+<!--</div>-->

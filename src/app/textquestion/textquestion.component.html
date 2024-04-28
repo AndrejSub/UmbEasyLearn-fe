@@ -1,0 +1,42 @@
+
+<div *ngIf="!end;else endPage" >
+    <div *ngIf="!showAnswer;else backSide">
+
+        <div class="card w-192  text-center text-primary-content">
+            <div class="card-body">
+                <p>{{question}}</p>
+                <form [formGroup]="loginForm" class="space-y-4 md:space-y-6" action="#">
+                    <div>
+                        <label for="odpoved" class="text-start block mb-2 text-sm font-medium ">Tvoja odpoved:</label>
+                        <input formControlName="odpoved" type="text" name="odpoved" id="odpoved" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                    </div>
+
+                </form>
+                <div class="card-actions pt-5 justify-center">
+                    <button class="btn" (click)="showBackSide()">Ukáž odpoveď</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #backSide>
+        <div class="card w-192  text-center text-primary-content">
+            <div class="card-body">
+                <p><span class="font-bold ">Spravna odpoved:</span>  {{answer}}</p>
+                <p><span class="font-bold">Tvoja odpoved: </span>{{userAnswer}}</p>
+                <p>Vedel si odpoved?</p>
+                <div class="card-actions pt-5 justify-center">
+                    <button  type="submit" (click)="correctAnswer()" class="btn">Ano</button>
+                    <button  type="submit" (click)="wrongAnswer()" class="btn">Nie</button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+<ng-template #endPage>
+    <div class="card h-32 w-192  text-center text-primary-content">
+        <div class="card-body ">
+            <p>Stlač next pre dalšiu otazku</p>
+
+        </div>
+    </div>
+</ng-template>

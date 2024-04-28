@@ -51,7 +51,9 @@ export class AuthService {
         localStorage.setItem("loginToken",res.token)
         localStorage.setItem("userEmail",loginDto.email)
         this.toastr.success("Login Successfully")
-        this.router.navigateByUrl("")
+        this.router.navigateByUrl("").then(() => {
+          window.location.reload();
+        });
         // this.loginService.logIn()
       }
     } ,error =>{

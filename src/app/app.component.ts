@@ -27,7 +27,8 @@ export class AppComponent {
           // @ts-ignore
           this.user = users
         console.log(users.avatar)
-        localStorage.setItem("avatarImg", users.avatar)}
+          localStorage.setItem("avatarImg", users.avatar)
+        }
     )
   }
 }

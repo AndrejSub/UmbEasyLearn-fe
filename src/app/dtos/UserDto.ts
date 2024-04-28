@@ -28,3 +28,7 @@ export interface userinfo{
     created_at:string
     updated_at:string
 }
+export interface useravatar{
+    email:string | undefined | null
+    avatar:string | undefined | null
+}

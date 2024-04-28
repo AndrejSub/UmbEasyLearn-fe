@@ -13,6 +13,9 @@ export class TestsService {
       private apiSerivce: ApiService
   ) { }
 
+  points:number = 0;
+  goNext:boolean =  false;
+
   get = (url:string): Observable<SubjectsDto[]> =>{
     return this.apiSerivce.get(url)
   }
@@ -23,4 +26,29 @@ export class TestsService {
   getTestByTestId = (url: string, id: string|null): Observable<testsDto[]> => {
     return this.apiSerivce.getByTestId(url, id);
   }
+
+  next(){
+    this.goNext = true
+  }
+
+  setFalse(){
+    this.goNext = false
+  }
+
+  correctAnswer(){
+
+    this.points++
+    console.log(this.points)
+    this.next()
+  }
+
+  wrongAnswer(){
+    this.next()
+  }
+
+
+
+
+
+
 }

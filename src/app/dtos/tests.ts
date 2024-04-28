@@ -23,6 +23,7 @@ export interface AbcQuestions {
     b: string;
     c: string;
     question: string;
+    correctAnswer: string;
 }
 
 

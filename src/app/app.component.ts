@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {FooterComponent} from "./footer/footer.component";
@@ -7,6 +7,7 @@ import {UserService} from "./services/user.service";
 import {userinfo} from "./dtos/UserDto";
 
 
+// @ts-ignore
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,7 +15,7 @@ import {userinfo} from "./dtos/UserDto";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'EasyLearn-fe';
   // @ts-ignore
   user: userinfo;

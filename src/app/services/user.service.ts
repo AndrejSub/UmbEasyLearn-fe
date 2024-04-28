@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {userinfo} from "../dtos/UserDto";
+import {useravatar, userinfo} from "../dtos/UserDto";
 import {ApiService} from "./api.service";
 
 @Injectable({
@@ -20,7 +20,12 @@ export class UserService {
     deleteUserByEmail(email: string){
     this.httpClient.delete(`http://localhost:8222/users/email=${email}`).subscribe();
   }
-  updateUserPhoto = (userDTO: userinfo, email:string): Observable<any> =>{
-    return this.httpClient.patch(`http://localhost:8222/users/${email}`, userDTO)
-  }
+  // updateUserPhoto = (userDTO: userinfo, email:string): Observable<userinfo> =>{
+  //   console.log(userDTO)
+  //   console.log(email)
+  //   return this.apiservice.patchByEmail<userinfo>(email, userDTO)
+  // }
+  // changePhoto(userinfo: useravatar) : Observable<any> {
+  //   return this.httpClient.post("http://localhost:8222/users/update",userinfo)
+  // }
 }

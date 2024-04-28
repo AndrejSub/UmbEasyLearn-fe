@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {loginDto, registerDto, valid} from "../dtos/UserDto";
+import {loginDto, registerDto, useravatar, valid} from "../dtos/UserDto";
 import { Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
@@ -32,6 +32,9 @@ export class AuthService {
 
   changePassword(loginDto:loginDto) : Observable<any> {
     return this.httpClient.post("http://localhost:8222/auth/changepassword",loginDto)
+  }
+  changePhoto(userinfo:useravatar) : Observable<any> {
+    return this.httpClient.post("http://localhost:8222/users/update",userinfo)
   }
 
   logout(){

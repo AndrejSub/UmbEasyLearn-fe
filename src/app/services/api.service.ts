@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {useravatar} from "../dtos/UserDto";
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,8 @@ export class ApiService {
   getByEmail<T>(email:string):Observable<T>{
     return this.httpClient.get<T>(`http://localhost:8222/users/${email}`)
   }
+  // patchByEmail<T>(email:string, userDTO:useravatar):Observable<T>{
+  //   return this.httpClient.patch<T>(`http://localhost:8222/users/${email}`, userDTO)
+  // }
+
 }

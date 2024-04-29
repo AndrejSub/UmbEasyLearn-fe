@@ -1,20 +1,24 @@
 .fl-container{
   width: 1000px;
   height: 350px;
-  perspective: 1000px;
+  perspective: 1900px;
 }
 
 .fl-card{
   height: 100%;
   width: 100%;
   position: relative;
-  transition: transform 1000ms;
+  transition: transform 1500ms;
   transform-style: preserve-3d;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .fl-container:hover > .fl-card{
   cursor: pointer;
-  transform: rotateX(180deg);
+  transform: rotateY(180deg);
 }
 
 .front,
@@ -34,7 +38,7 @@
 }
 
 .back{
-  transform:rotateX(180deg);
-  background: linear-gradient(45deg, rgba(56, 188, 246, 0.59), rgba(159, 14, 143, 0.58));
+  transform:rotateY(180deg);
+  background: linear-gradient(45deg, rgba(56, 188, 246, 0.59), rgba(101, 202, 137, 0.6));
   width:100%
 }

@@ -60,4 +60,8 @@ export class AuthService {
       this.toastr.warning("Wrong email or password")
     })
   }
+
+  isAdmin() {
+    return false;
+  }
 }

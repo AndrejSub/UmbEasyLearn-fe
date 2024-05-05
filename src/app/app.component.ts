@@ -21,15 +21,15 @@ export class AppComponent implements OnInit {
   user: userinfo;
   constructor(private userService: UserService) {}
   async ngOnInit(): Promise<any> {
-    if (localStorage.getItem("userEmail") !== null)
-    // @ts-ignore
-    this.userService.getUserByEmail(localStorage.getItem("userEmail")).subscribe(
-        (users: userinfo) => {
-          // @ts-ignore
-          this.user = users
-        console.log(users.avatar)
-          localStorage.setItem("avatarImg", users.avatar)
-        }
-    )
+    if (localStorage.getItem("userEmail") !== null){
+      // @ts-ignore
+      this.userService.getUserByEmail(localStorage.getItem("userEmail")).subscribe(
+          (users: userinfo) => {
+            // @ts-ignore
+            this.user = users
+            localStorage.setItem("avatarImg", users.avatar)
+          }
+      )
+    }
   }
 }

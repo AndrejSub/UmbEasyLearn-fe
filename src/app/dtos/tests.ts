@@ -44,3 +44,12 @@ export interface testsDto {
     practicalQuestions: PracticalQuestions[];
     abcQuestions: AbcQuestions[]
 }
+
+export interface resultDto {
+    _id: string;
+    testName: string;
+    testID: string;
+    subjectID: string;
+    correct: string;
+    wrong: string;
+}

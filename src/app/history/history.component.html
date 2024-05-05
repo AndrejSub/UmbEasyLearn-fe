@@ -5,8 +5,8 @@
         Results:
     </div>
     <div class="collapse-content">
-        <p>result of the test 1</p>
-        <p>result of the test 2</p>
-        <p>result of the test 3</p>
+        <div *ngFor="let res of testResults">
+            <p>Test Name: {{res.testName}} CorrectAnswers: {{res.correctAnswers}} Questions Count: {{res.questionsCount}}</p>
+        </div>
     </div>
 </div>

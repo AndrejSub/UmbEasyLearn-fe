@@ -12,15 +12,15 @@ export class TestsService {
   constructor(
       private apiSerivce: ApiService
   ) { }
-
+  allPoints: number = 0;
   points:number = 0;
   goNext:boolean =  false;
 
   get = (url:string): Observable<SubjectsDto[]> =>{
     return this.apiSerivce.get(url)
   }
-  getTestsHistory = (url: string): Observable<resultDto[]> => {
-    return this.apiSerivce.getResults(url);
+  getTestsHistory = (email: string): Observable<resultDto[]> => {
+    return this.apiSerivce.getResultsByEmail(email)
   }
   getTestsById = (url:string, id: string|null): Observable<testsDto[]> => {
     return this.apiSerivce.getById(url,id);
@@ -38,19 +38,23 @@ export class TestsService {
   }
 
   correctAnswer(){
-
     this.points++
+    this.allPoints++
     console.log(this.points)
+    console.log("all points:" + this.allPoints)
     this.next()
   }
 
   wrongAnswer(){
     this.next()
+    this.allPoints++
+    console.log("all points:" + this.allPoints)
   }
 
-
-
-
-
-
+  getNumberOfCorrectAnswers(): number{
+    return this.points;
+  }
+  getNumerOfAllQuestions(): number{
+    return this.allPoints;
+  }
 }

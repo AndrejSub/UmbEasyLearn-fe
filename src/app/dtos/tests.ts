@@ -46,10 +46,11 @@ export interface testsDto {
 }
 
 export interface resultDto {
-    _id: string;
-    testName: string;
-    testID: string;
-    subjectID: string;
-    correct: string;
-    wrong: string;
+    "email": string,
+    "testID": string,
+    "subjectId": string,
+    "testName": string,
+    "subjectName": string,
+    "correctAnswers": string,
+    "questionsCount": string
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {useravatar} from "../dtos/UserDto";
+import {resultDto, testsDto} from "../dtos/tests";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,11 @@ export class ApiService {
   get<T>(url: string): Observable<T>{
     return this.httpClient.get<T>("http://localhost:8222/api/"+url) ;
   }
-  getResults<T>(url: string): Observable<T>{
-    return this.httpClient.get<T>("http://localhost:8222..."+url);
+  getResultsByEmail<T>(email: string): Observable<T>{
+    return this.httpClient.get<T>(`http://localhost:8222/api/testhistory/email=${email}`);
+  }
+  sendTestResult<T>(testResult: resultDto) : Observable<T> {
+    return this.httpClient.post<T>("http://localhost:8222/api/testhistory",testResult)
   }
   getById<T>(url:string,id:string|null): Observable<T>{
     return this.httpClient.get<T>(`http://localhost:8222/api/${url}/ID=${id}`);

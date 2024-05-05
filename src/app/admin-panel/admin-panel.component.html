@@ -1,0 +1,62 @@
+<div class="max-w-screen-xl mx-auto mt-4 px-4">
+    <form class="rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="testName">
+                <h2 class="mb-4 text-xl font-bold">Pridaj nový test</h2>
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="testName" type="text" placeholder="Názov testu">
+        </div>
+        <div class="flex justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
+                FlashCards
+            </button>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
+                Prakticke
+            </button>
+            <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" type="button" (click)="addTextQuestion()">
+                Text
+            </button>
+            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" type="button" (click)="addABC()">
+                ABC
+            </button>
+        </div>
+
+        <div>
+            <div id="abcQuestions">
+                <div *ngFor="let question of abcQuestions; let i = index" class="mt-4 border-b border-gray-200">
+                    <h4 class="text-lg font-semibold mb-2">{{ i + 1 }}. abc otazka</h4>
+                    <label class="block mb-1" for="abcQuestion{{ i }}">Otazka</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" type="text" id="abcQuestion{{ i }}" name="abcQuestion[{{ i }}]">
+                    <ul>
+                        <li class="flex items-center mb-2">
+                            <input class="mr-2" type="radio" value="a" checked>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <input class="mr-2" type="radio" value="b">
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <input class="mr-2" type="radio" value="c">
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div id="textQuestions">
+                <div *ngFor="let question of textQuestions; let i = index" class="mt-4 border-b border-gray-200">
+                    <h4 class="text-lg font-semibold mb-2">{{ i + 1 }}. Text otazka</h4>
+                    <label class="block mb-1" for="textQuestion{{ i }}">Otazka</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-2" type="text" id="textQuestion{{ i }}" name="textQuestion[{{ i }}]">
+                    <label class="block mb-1" for="textAnswer{{ i }}">Odpoveď</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="textAnswer{{ i }}" name="textAnswer[{{ i }}]">
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>

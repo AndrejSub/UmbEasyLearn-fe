@@ -44,3 +44,13 @@ export interface testsDto {
     practicalQuestions: PracticalQuestions[];
     abcQuestions: AbcQuestions[]
 }
+
+export interface resultDto {
+    "email": string,
+    "testID": string,
+    "subjectId": string,
+    "testName": string,
+    "subjectName": string,
+    "correctAnswers": string,
+    "questionsCount": string
+}

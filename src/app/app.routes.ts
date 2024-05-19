@@ -7,7 +7,7 @@ import {PredmetyHostComponent} from "./predmety-host/predmety-host.component";
 import {TestComponentComponent} from "./test-component/test-component.component";
 import {ProfileComponent}  from "./profile/profile.component";
 import {ChangepasswordComponent} from "./changepassword/changepassword.component";
-import {AdminPanelComponent} from "./admin-panel/admin-panel.component";
+import {ExamFormComponent} from "./admin-panel/exam-form/exam-form.component";
 
 export const routes: Routes = [
     {
@@ -16,7 +16,7 @@ export const routes: Routes = [
     },
     {
         path: 'admin',
-        component: AdminPanelComponent
+        component: ExamFormComponent
     },
     {
         path: 'predmety/:idPredmetu',

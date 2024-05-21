@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="saveForm()" class="max-w-screen-xl mx-auto mt-4 px-4 shadow-md rounded">
+    <div class=" px-8 pt-6 pb-8 mb-4">
+        <label for="testname" class="flex justify-center mb-4 text-xl tracking-tight font-bold">Test Name</label>
+        <input id="testname" type="text" placeholder="Zadaj meno" formControlName="testName" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline mb-4">
+
+        <label class="flex justify-center mb-4 text-xl tracking-tight font-bold">Predmet</label>
+        <select  formControlName="subjectID" *ngIf="subjects$|async as predmety" class="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline mb-4" >
+            <option *ngFor="let predmet of predmety" [value]="predmet.subjectID"  >
+                {{predmet.subjectName}}
+            </option>
+        </select>
+
+        <div class="flex justify-between">
+            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline mr-4" (click)="createAbcQuestion()">ABC</button>
+
+            <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline mr-4" (click)="createPracticalQuestion()">Practical Questions</button>
+
+            <button type="button" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline mr-4" (click)="createTextQuestion()">Text Questions</button>
+
+            <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline" (click)="createFlashCard()">Flash Cards</button>
+        </div>
+    </div>
+
+    <div class="flex justify-center mb-4 text-xl tracking-tight font-bold">ABC</div>
+    <app-abc-control *ngFor="let i of abcQuestions"
+                     [saveTest]="saveTest$ | async"
+                     (addQuestion)="addQuestion('abcQuestions', $event)"/>
+
+    <div class="flex justify-center mb-4 text-xl tracking-tight font-bold">Practical Questions</div>
+    <app-prakticke-control *ngFor="let i of practicalQuestions"
+                                 [saveTest]="saveTest$ | async"
+                                 (addQuestion)="addQuestion('practicalQuestions', $event)"/>
+
+    <div class="flex justify-center mb-4 text-xl tracking-tight font-bold">Text Questions</div>
+    <app-question-answer-control *ngFor="let i of textQuestions"
+                                 [saveTest]="saveTest$ | async"
+                                 (addQuestion)="addQuestion('textQuestions', $event)"/>
+
+    <div class="flex justify-center mb-4 text-xl tracking-tight font-bold">Flash Cards</div>
+    <app-question-answer-control *ngFor="let i of flashCards"
+                                 [saveTest]="saveTest$ | async"
+                                 (addQuestion)="addQuestion('flashCards', $event)"/>
+    <div class="flex items-center justify-center">
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded mt-4 focus:outline-none focus:shadow-outline mb-6">
+        Save
+        <span *ngIf="loading" class="loading loading-spinner loading-md"></span>
+    </button>
+    </div>
+</form>

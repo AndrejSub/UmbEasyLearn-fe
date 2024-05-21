@@ -19,6 +19,8 @@ import {AuthService} from "../services/auth.service";
 })
 export class NavbarComponent implements OnInit{
 
+    isAdmin: boolean = false;
+
     constructor(
 
         private loginService: LoginService,
@@ -55,8 +57,11 @@ export class NavbarComponent implements OnInit{
 
     ngOnInit(){
        this.img2 = this.getAvatar()
+        this.isAdmin = this.authService.isAdmin();
 
     }
+
+
 
 
 }

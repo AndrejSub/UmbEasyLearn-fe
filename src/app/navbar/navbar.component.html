@@ -10,12 +10,19 @@
                     <li><a title="EasyLearn | Nas tim" href="#onas">Náš tím</a></li>
                     <li><a title="EasyLearn | Predmety" href="#predmety">Predmety</a></li>
                     <li><a title="EasyLearn | Kontakt" href="#kontakt">Kontakt</a></li>
+
+                    <li *ngIf="isAdmin">
+                        <a href="/admin">Admin</a>
+                    </li>
+
+
                     <li><a title="EasyLearn | O nas" href="/info">O nás</a></li>
                 </ul>
             </div>
         </div>
         <a href="#" class="btn btn-ghost text-xl font-extrabold">UMB-EasyLearn</a>
         <div class="navbar-end">
+
             <app-theme-switch class="pe-5"></app-theme-switch>
 
             <div class="dropdown dropdown-end" (mouseenter)="checkLogin()">

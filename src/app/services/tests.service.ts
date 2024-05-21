@@ -51,6 +51,15 @@ export class TestsService {
     console.log("all points:" + this.allPoints)
   }
 
+  createNewTest(test:testsDto){
+    return this.apiSerivce.post("tests", test)
+  }
+
+
+
+
+
+
   getNumberOfCorrectAnswers(): number{
     return this.points;
   }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PredmetTZIComponent } from './predmet-tzi.component';
+import { ExamFormComponent } from './exam-form.component';
 
-describe('PredmetTZIComponent', () => {
-  let component: PredmetTZIComponent;
-  let fixture: ComponentFixture<PredmetTZIComponent>;
+describe('ExamFormComponent', () => {
+  let component: ExamFormComponent;
+  let fixture: ComponentFixture<ExamFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PredmetTZIComponent]
+      imports: [ExamFormComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PredmetTZIComponent);
+    fixture = TestBed.createComponent(ExamFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

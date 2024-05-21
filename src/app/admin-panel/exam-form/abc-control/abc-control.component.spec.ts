@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PredmetMATComponent } from './predmet-mat.component';
+import { AbcControlComponent } from './abc-control.component';
 
-describe('PredmetMATComponent', () => {
-  let component: PredmetMATComponent;
-  let fixture: ComponentFixture<PredmetMATComponent>;
+describe('AbcControlComponent', () => {
+  let component: AbcControlComponent;
+  let fixture: ComponentFixture<AbcControlComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PredmetMATComponent]
+      imports: [AbcControlComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PredmetMATComponent);
+    fixture = TestBed.createComponent(AbcControlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

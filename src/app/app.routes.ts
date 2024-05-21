@@ -8,6 +8,7 @@ import {TestComponentComponent} from "./test-component/test-component.component"
 import {ProfileComponent}  from "./profile/profile.component";
 import {ChangepasswordComponent} from "./changepassword/changepassword.component";
 import {ExamFormComponent} from "./admin-panel/exam-form/exam-form.component";
+import {InfoComponent} from "./info/info.component";
 
 export const routes: Routes = [
     {
@@ -45,5 +46,9 @@ export const routes: Routes = [
     {
         path:"profile",
         component: ProfileComponent
+    },
+    {
+        path: 'info',
+        component: InfoComponent
     }
 ];

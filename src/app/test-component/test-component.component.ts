@@ -1,13 +1,14 @@
 import {Component, inject, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {NgForOf, NgIf} from "@angular/common";
 import {ActivatedRoute, RouterLink} from "@angular/router";
-import {testsDto} from "../dtos/tests";
+import {resultDto, testsDto} from "../dtos/tests";
 import {TestsService} from "../services/tests.service";
 import {StepperModule} from "primeng/stepper";
 import {ButtonModule} from "primeng/button";
 import {FlashcardComponent} from "../flashcard/flashcard.component";
 import {TextquestionComponent} from "../textquestion/textquestion.component";
 import {AbcquestionComponent} from "../abcquestion/abcquestion.component";
+import {ApiService} from "../services/api.service";
 
 @Component({
   selector: 'app-test-component',
@@ -30,8 +31,21 @@ export class TestComponentComponent implements OnInit,OnChanges{
   private readonly route = inject(ActivatedRoute)
   tests:testsDto[] = []
 
+  result: resultDto = {
+    email: "",
+    testID: "",
+    subjectId: "",
+    testName: "",
+    subjectName: "",
+    correctAnswers: "",
+    questionsCount: ""
+  }
 
-  constructor(protected testsService: TestsService) {
+  constructor(
+      protected testsService: TestsService,
+      private testService: TestsService,
+      private api: ApiService
+  ) {
     this.id = this.route.snapshot.paramMap.get('idTestu');
     console.log("this ID "+ this.id);
   }
@@ -47,6 +61,19 @@ export class TestComponentComponent implements OnInit,OnChanges{
 
   ngOnChanges(changes: SimpleChanges) {
     this.nextBool = this.testsService.goNext
+  }
+  SendResults(): void{
+    this.result.testID = this.tests[0].testID
+    this.result.testName = this.tests[0].testName
+    // @ts-ignore
+    this.result.email = localStorage.getItem("userEmail")
+    this.result.subjectId = this.tests[0].subjectID
+    this.result.correctAnswers = this.testService.getNumberOfCorrectAnswers().toString()
+    this.result.questionsCount = this.testService.getNumerOfAllQuestions().toString()
+    this.api.sendTestResult(this.result).subscribe((res) =>{
+      console.log("poslal som")
+    } )
+    console.log(this.result);
   }
 
 }

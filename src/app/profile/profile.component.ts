@@ -4,14 +4,16 @@ import {UserService} from "../services/user.service";
 import {RouterLink} from "@angular/router";
 import {AuthService} from "../services/auth.service";
 import {useravatar} from "../dtos/UserDto";
+import {HistoryComponent} from "../history/history.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [
-    DeleteUserComponent,
-      RouterLink
-  ],
+    imports: [
+        DeleteUserComponent,
+        RouterLink,
+        HistoryComponent
+    ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
@@ -34,12 +36,8 @@ export class ProfileComponent {
             const  base64String = reader.result as string;
             this.imgurl = base64String;
             this.user.avatar = base64String
-            console.log(this.user)
             this.authService.changePhoto(this.user).subscribe((res)=>{
-                console.log(res)
-                console.log("podarilo sa")
             })
-            console.log("zmenil som ")
         }
         if (file){
             reader.readAsDataURL(file);

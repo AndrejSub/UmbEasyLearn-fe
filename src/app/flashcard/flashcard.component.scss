@@ -1,0 +1,44 @@
+.fl-container{
+  width: 1000px;
+  height: 350px;
+  perspective: 1900px;
+}
+
+.fl-card{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fl-container:hover > .fl-card{
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.front,
+.back{
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+}
+.front{
+  background: linear-gradient(45deg, rgba(56, 188, 246, 0.59), rgba(101, 202, 137, 0.6));
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.back{
+  transform:rotateY(180deg);
+  background: linear-gradient(45deg, rgba(56, 188, 246, 0.59), rgba(101, 202, 137, 0.6));
+  width:100%
+}

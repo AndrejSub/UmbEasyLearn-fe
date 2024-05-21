@@ -1,0 +1,12 @@
+<h4 class="text-xl pl-2.5 mb-3 font-bold">Last 10 tests: </h4>
+
+<div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-200">
+    <div class="collapse-title text-xl font-medium">
+        Results:
+    </div>
+    <div class="collapse-content">
+        <div *ngFor="let res of testResults">
+            <p>Test Name: {{res.testName}} CorrectAnswers: {{res.correctAnswers}} Questions Count: {{res.questionsCount}}</p>
+        </div>
+    </div>
+</div>

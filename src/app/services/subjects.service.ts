@@ -12,7 +12,7 @@ export class SubjectsService {
       private apiSerivce: ApiService
   ) { }
 
-  getSubjects = (url:string): Observable<SubjectsDto[]> =>{
-    return this.apiSerivce.get(url)
+  getSubjects(): Observable<SubjectsDto[]> {
+    return this.apiSerivce.get("subjects")
   }
 }

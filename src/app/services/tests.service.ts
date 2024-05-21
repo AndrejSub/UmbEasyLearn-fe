@@ -46,6 +46,10 @@ export class TestsService {
     this.next()
   }
 
+  createNewTest(test:testsDto){
+    return this.apiSerivce.post("tests", test)
+  }
+
 
 
 

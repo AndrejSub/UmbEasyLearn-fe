@@ -28,7 +28,7 @@ export class MainPageComponent implements OnInit{
   async ngOnInit(): Promise<any> {
     if (await this.loginService.logIn()) {
       this.logedIn= true;
-      this.subjectsService.getSubjects("subjects")
+      this.subjectsService.getSubjects()
           .subscribe(
               (subjects: SubjectsDto[]) => {
                 this.subjects = subjects

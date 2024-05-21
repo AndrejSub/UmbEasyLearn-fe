@@ -1,10 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {AsyncPipe, NgForOf} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {BehaviorSubject} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
 import {QuestionAnswerControlComponent} from "./question-answer-control/question-answer-control.component";
 import {AbcControlComponent} from "./abc-control/abc-control.component";
+import {SubjectsService} from "../../services/subjects.service";
+import {TestsService} from "../../services/tests.service";
+import {PraktickeControlComponent} from "./prakticke-control/prakticke-control.component";
 
 @Component({
   selector: 'app-exam-form',
@@ -14,7 +16,9 @@ import {AbcControlComponent} from "./abc-control/abc-control.component";
     AbcControlComponent,
     NgForOf,
     QuestionAnswerControlComponent,
-    AsyncPipe
+    AsyncPipe,
+    NgIf,
+    PraktickeControlComponent
   ],
   templateUrl: './exam-form.component.html',
   styleUrl: './exam-form.component.scss'
@@ -23,12 +27,17 @@ export class ExamFormComponent {
   fb = inject(FormBuilder);
   form: FormGroup;
   saveTest$ = new BehaviorSubject(false);
-  private readonly route = inject(ActivatedRoute)
 
   flashCards: Array<string> = [];
   textQuestions: Array<string> = [];
   practicalQuestions: Array<string> = [];
   abcQuestions: Array<string> = [];
+
+  subjects$ = inject(SubjectsService).getSubjects();
+
+  testService = inject(TestsService);
+
+  loading = false;
 
   constructor() {
     this.form = this.fb.group({
@@ -39,9 +48,6 @@ export class ExamFormComponent {
       practicalQuestions: new FormControl([]),
       abcQuestions: new FormControl([])
     })
-    this.form.controls.subjectID.patchValue(
-        this.route.snapshot.paramMap.get('idPredmetu')
-    );
   }
 
   createFlashCard() {
@@ -65,7 +71,23 @@ export class ExamFormComponent {
   }
 
   saveForm() {
+    this.loading = true
     this.saveTest$.next(true)
-    console.log(this.form.value);
+    setTimeout(()=>{
+        this.testService.createNewTest(this.form.value).subscribe(
+            ()=>
+            {this.loading = false
+              this.form.reset()
+              this.abcQuestions = []
+              this.flashCards = [];
+              this.practicalQuestions = [];
+              this.textQuestions = [];
+            }
+        );
+    },200)
+
   }
+
+
+
 }

@@ -4,14 +4,15 @@ import {AuthService} from "../../services/auth.service";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {registerDto} from "../../dtos/UserDto";
 import {ToastrService} from "ngx-toastr";
-import {formatDate} from "@angular/common";
+import {formatDate, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
@@ -36,6 +37,21 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required]),
     pwd: new FormControl('', [Validators.required, Validators.minLength(3)]),
   })
+
+  registerForm = new FormGroup({
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email
+    ]),
+    pwd: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern('(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}') // At least one number, one lowercase and one uppercase letter
+    ]),
+    confirmPwd: new FormControl('', [
+      Validators.required
+    ])
+  }, );
 
   register(){
     this.registerDto.email = this.loginForm.get("email")?.value

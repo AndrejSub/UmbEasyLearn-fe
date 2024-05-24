@@ -7,16 +7,13 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2  shadow bg-base-100 rounded-box w-52">
+                    <li><a title="EasyLearn | O nas" href="/info">O nás</a></li>
                     <li><a title="EasyLearn | Nas tim" href="#onas">Náš tím</a></li>
                     <li><a title="EasyLearn | Predmety" href="#predmety">Predmety</a></li>
                     <li><a title="EasyLearn | Kontakt" href="#kontakt">Kontakt</a></li>
-
                     <li *ngIf="isAdmin">
                         <a href="/admin">Admin</a>
                     </li>
-
-
-                    <li><a title="EasyLearn | O nas" href="/info">O nás</a></li>
                 </ul>
             </div>
         </div>
@@ -36,26 +33,23 @@
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
                             <a routerLink="register" class="justify-between">
-                                <p>Register</p>
-                                <span class="badge">New</span>
+                                <p>Registrácia</p>
+                                <span class="badge">Nové</span>
                             </a>
                         </li>
                         <li><a routerLink="login">
-                            <p>Login</p>
+                            <p>Prihlásenie</p>
                         </a></li>
-<!--                        <li>-->
-<!--                            <input type="file" (change)="onFileChange($event)" accept="image/*" class="file-input w-full max-w-xs" />-->
-<!--                        </li>-->
                     </ul>
                 </div>
                 <ng-template #elseBlock>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         <li><a routerLink="profile">
-                            <p>Profile</p>
+                            <p>Profil</p>
                         </a></li>
                         <li>
                             <a (click)="logout()">
-                                <p>Logout</p>
+                                <p>Odhlásiť sa</p>
                             </a>
                         </li>
                         </ul>

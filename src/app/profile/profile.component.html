@@ -1,7 +1,7 @@
 <div class="container ">
     <div  class=" card bg-neutral flex p-10 gap-5">
         <div>
-            <h1 class="mb-4 text-4xl p-10 text-neutral-content font-extrabold text-center leading-none tracking-tight md:text-3xl lg:text-4xl "> Profile</h1>
+            <h1 class="mb-4 text-4xl p-10 text-neutral-content font-extrabold text-center leading-none tracking-tight md:text-3xl lg:text-4xl ">Profil</h1>
         </div>
             <div class="flex flex-row gap-5" style="align-items: center">
                 <div class="avatar">
@@ -11,50 +11,21 @@
                 </div>
                 <div>
                     <h3 class=" text-2xl font-medium">{{userEmail }}</h3>
-                    <h4 class=" text-l font-light">Member since: 17.05.2024</h4>
+                    <h4 class=" text-l font-light">Členom od: 27.05.2024</h4>
                 </div>
 
             </div>
         <input type="file" class="file-input" (change)="onFileChange($event)" accept="image/*">
-        <div class="stats shadow">
-            <div class="stat">
-                <div class="stat-figure text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <div class="stat-title">Tests Completed</div>
-                <div class="stat-value">5/10</div>
-            </div>
 
-            <div class="stat">
-                <div class="stat-figure text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-                </div>
-                <div class="stat-title">Subjects Completed</div>
-                <div class="stat-value">1/5</div>
-            </div>
-
-            <div class="stat">
-                <div class="stat-figure text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
-                </div>
-                <div class="stat-title">Learner Ranking</div>
-                <div class="stat-value">5/500</div>
-            </div>
-
-        </div>
 
         <div class="history-wrapper">
             <app-history></app-history>
         </div>
 
         <div class="  flex gap-5" style="height: 6rem;align-items: end">
-            <button routerLink="/changepassword" class="btn">Change Password</button>
+            <button routerLink="/changepassword" class="btn">Zmeniť heslo</button>
             <app-delete-user></app-delete-user>
         </div>
-
-
-
     </div>
-
 </div>
 <br><br><br><br>

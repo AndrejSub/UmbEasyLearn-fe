@@ -5,27 +5,25 @@
         Výsledky:
     </div>
     <div class="collapse-content">
-        <div *ngFor="let res of testResults">
-            <div class="overflow-x-auto">
-                <table class="table">
-                    <!-- head -->
-                    <thead>
-                    <tr>
-                        <th>Názov testu</th>
-                        <th>Správne odpovede</th>
-                        <th>Počet otázok</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- row 1 -->
-                    <tr>
-                        <td>{{res.testName}}</td>
-                        <td>{{res.correctAnswers}} </td>
-                        <td>{{res.questionsCount}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="overflow-x-auto">
+            <table class="table">
+                <!-- head -->
+                <thead>
+                <tr>
+                    <th>Názov testu</th>
+                    <th>Správne odpovede</th>
+                    <th>Počet otázok</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- row 1 -->
+                <tr *ngFor="let res of testResults">
+                    <td>{{res.testName}}</td>
+                    <td>{{res.correctAnswers}} </td>
+                    <td>{{res.questionsCount}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

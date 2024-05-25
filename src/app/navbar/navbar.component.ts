@@ -19,7 +19,6 @@ import {AuthService} from "../services/auth.service";
 })
 export class NavbarComponent implements OnInit{
 
-    isAdmin: boolean = false;
 
     constructor(
 
@@ -32,9 +31,8 @@ export class NavbarComponent implements OnInit{
     logedIn:boolean = this.loginService.logedIn;
     // @ts-ignore
     img2:string = localStorage.getItem("avatarImg")
-    checkLogin():void{
-
-        this.logedIn = this.loginService.logedIn
+    checkLogin():boolean{
+        return this.loginService.logedIn
     }
 
     logout():void{
@@ -57,7 +55,7 @@ export class NavbarComponent implements OnInit{
 
     ngOnInit(){
        this.img2 = this.getAvatar()
-        this.isAdmin = this.authService.isAdmin();
+
 
     }
 

@@ -76,4 +76,11 @@ export class TestComponentComponent implements OnInit,OnChanges{
     console.log(this.result);
   }
 
+  GetTestMessages(): any{
+    if(this.testService.getNumberOfCorrectAnswers() > this.testService.getNumerOfAllQuestions() /2){
+      return `Gratulujem tento test si zvladol úspšene počet bodov ${this.testService.getNumberOfCorrectAnswers()} z ${this.testService.getNumerOfAllQuestions()}!`
+
+  }return `Odporúčame ti zopakovať si tento test počet bodov: ${this.testService.getNumberOfCorrectAnswers()} z ${this.testService.getNumerOfAllQuestions()}!`
+  }
+
 }

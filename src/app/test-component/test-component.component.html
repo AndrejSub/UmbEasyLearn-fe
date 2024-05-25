@@ -77,10 +77,10 @@
     <p-stepperPanel >
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2  surface-ground flex-auto flex justify-content-center align-items-center font-medium">Gratulujem úspešne si zvládol tento test pocet dosiahnutých bodov:{{testsService.points}}</div>
+                <div class="border-2  surface-ground flex-auto flex justify-content-center align-items-center font-medium">{{GetTestMessages()}}</div>
             </div>
             <div class="flex pt-4 justify-end">
-                <button routerLink="" class="btn" (click)="SendResults()">Go to home page</button>
+                <button routerLink="" class="btn" (click)="SendResults()">Vráť sa na domovskú stránku</button>
             </div>
         </ng-template>
     </p-stepperPanel>

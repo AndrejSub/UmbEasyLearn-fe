@@ -55,11 +55,6 @@ export class TestsService {
     return this.apiSerivce.post("tests", test)
   }
 
-
-
-
-
-
   getNumberOfCorrectAnswers(): number{
     return this.points;
   }

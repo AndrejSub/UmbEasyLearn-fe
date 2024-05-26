@@ -33,10 +33,6 @@ export class RegisterComponent {
     role:"user"
   };
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    pwd: new FormControl('', [Validators.required, Validators.minLength(3)]),
-  })
 
   registerForm = new FormGroup({
     email: new FormControl('', [
@@ -54,8 +50,9 @@ export class RegisterComponent {
   }, );
 
   register(){
-    this.registerDto.email = this.loginForm.get("email")?.value
-    this.registerDto.password = this.loginForm.get("pwd")?.value
+    this.registerDto.email = this.registerForm.get("email")?.value
+    this.registerDto.password = this.registerForm.get("pwd")?.value
+    console.log(this.registerDto.password)
     console.log(formatDate(new Date(), 'yyyy/MM/dd', 'en'))
     this.registerDto.created_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
     this.registerDto.updated_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')

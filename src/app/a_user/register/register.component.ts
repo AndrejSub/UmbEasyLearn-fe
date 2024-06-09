@@ -50,20 +50,23 @@ export class RegisterComponent {
   }, );
 
   register(){
-    this.registerDto.email = this.registerForm.get("email")?.value
-    this.registerDto.password = this.registerForm.get("pwd")?.value
-    console.log(this.registerDto.password)
-    console.log(formatDate(new Date(), 'yyyy/MM/dd', 'en'))
-    this.registerDto.created_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
-    this.registerDto.updated_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
+    if (this.registerForm.get("pwd")?.value == this.registerForm.get("confirmPwd")?.value){
+      this.registerDto.email = this.registerForm.get("email")?.value
+      this.registerDto.password = this.registerForm.get("pwd")?.value
+      console.log(this.registerDto.password)
+      console.log(formatDate(new Date(), 'yyyy/MM/dd', 'en'))
+      this.registerDto.created_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
+      this.registerDto.updated_at = formatDate(new Date(), 'dd/MM/yyyy', 'en')
 
-    this.authService.createUser(this.registerDto).subscribe((res:any) =>{
-      this.authService.logIn(this.registerDto)
-      this.toastr.success("Account created successfully")
-    },error =>{
-      console.log(error)
-
-    })
+      this.authService.createUser(this.registerDto).subscribe((res:any) =>{
+        this.authService.logIn(this.registerDto)
+        this.toastr.success("Account created successfully")
+      },error =>{
+        console.log(error)
+      })
+    } else {
+      console.log("Hesla sa nerovnaju")
+    }
   }
 
 }

@@ -60,12 +60,12 @@ export class RegisterComponent {
 
       this.authService.createUser(this.registerDto).subscribe((res:any) =>{
         this.authService.logIn(this.registerDto)
-        this.toastr.success("Account created successfully")
+        this.toastr.success("Konto bolo úspešne vytvorené")
       },error =>{
         console.log(error)
       })
     } else {
-      console.log("Hesla sa nerovnaju")
+      this.toastr.error("Heslá sa nezhodujú")
     }
   }
 
